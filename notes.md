@@ -4,7 +4,7 @@
 
 ### Kickoff
 
-✅ release notes on declarative constraints
+#### ✅ release notes on declarative constraints
 
 Show the mechanism in the bookshop.
 
@@ -26,43 +26,43 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 
 💡 Show and explain the SQL transaction flow
 
-✅ Lets backup a bit and shed some light on all the Abbreviations
+#### ✅ Lets backup a bit and shed some light on all the Abbreviations
 
-- CDL = Conceptual Definition Language
+- **CDL** = Conceptual Definition Language
 --> everything that you write in .cds files (entities, services, types, annotations, ...)
 
-- CSN = Core Schema Notation
+- **CSN** = Core Schema Notation
 --> the in-memory representation of CDL models that captures Entity-Relationship Models and Extensions.
 
-- CQL = CDS Query Language
+- **CQL** = CDS Query Language
 --> typically used in your custom handlers to fire queries during runtime
 
-- CQN = CDS Query Notation
+- **CQN** = CDS Query Notation
 --> the in-memory representation of CQL queries
 
-- CXL = CDS eXpression Language
+- **CXL** = CDS eXpression Language
 --> used in CDL: calculated elements, annotations, views and projections
 --> used in CQL: columns, where, group by, having, order by, ...
 
-- CXN = CDS eXpression Notation
+- **CXN** = CDS eXpression Notation
 --> the in-memory representation of CXL expressions
 
 💡 CXL is used everywhere, the expressions used throughout CAP always end up in the context of queries
 
 ### Main Part
 
-✅ Now that we have clarified the abbreviations, we can dive deeper into CXL
+#### ✅ Now that we have clarified the abbreviations, we can dive deeper into CXL
 
 - Show the new CXL documentation
 - How to read this guide
 
-✅ CXL is based on the SQL expression language, so many syntax elements from SQL are also available in CXL.
+#### ✅ CXL is based on the SQL expression language, so many syntax elements from SQL are also available in CXL.
 
-- lets explore the sqlite syntax diagrams for expressions: https://www.sqlite.org/syntax/expr.html
+- lets explore the sqlite syntax diagrams for expressions: <https://www.sqlite.org/syntax/expr.html>
 - Lets compare the expr syntax diagrams of sqlite and CXL
 --> They are not so different after all!
 
-✅ Literals
+#### ✅ Literals
 
 - Show different literal types in CXL
 
@@ -85,7 +85,7 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 { val: '2026-01-14T10:30:00Z', literal: 'timestamp' }
 ```
 
-✅ Operators
+#### ✅ Operators
 
 - Unary operators that operate on a single operand:
 
@@ -131,7 +131,7 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 }
 ```
 
-✅ Predicates
+#### ✅ Predicates
 
 - Show different predicates in CXL
 
@@ -166,16 +166,12 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 }
 ```
 
-1. Distinction: CDS / CDL / CSN / CQL/N / CXL/N
-1. What is an expression?
-    1. An expression is code that evaluates to a value → 1 + 2
-1. Show sqlite syntax diagrams
-1. What is then a path expression
-    1. A path expression is an expression that navigates through a structured value (object/tree/graph)to select a nested element or set of elements.
-1. Expressions are everywhere, the “Art”
-    1. In CQL -> columns, where, group by, …
-    2. Annotations
-    3. Calculated elements
-1. Show big syntax diagram
-1. CXL != CXN → show in cds.repl
-1.  WHAT NOT HOW
+### Optional: What Not How - HANA repl session
+
+```shell
+cds add mta
+cds add hana
+npm i
+cds deploy --to hana
+ cds bind --exec --profile hybrid -- cds r --run .
+```

@@ -169,9 +169,8 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 ### Optional: What Not How - HANA repl session
 
 ```shell
-cds add mta
 cds add hana
 npm i
 cds deploy --to hana
- cds bind --exec --profile hybrid -- cds r --run .
+cds bind --exec --profile hybrid -- cds r --run .
 ```

@@ -56,13 +56,13 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 - Show the new CXL documentation
 - How to read this guide
 
-#### ✅ CXL is based on the SQL expression language, so many syntax elements from SQL are also available in CXL.
+#### ✅ CXL is based on the SQL expression language, so many syntax elements from SQL are also available in CXL
 
 - lets explore the sqlite syntax diagrams for expressions: <https://www.sqlite.org/syntax/expr.html>
 - Lets compare the expr syntax diagrams of sqlite and CXL
 --> They are not so different after all!
 
-#### ✅ Literals
+#### ✅ [Literals](https://capire-cxl.cfapps.sap.hana.ondemand.com/docs/cds/cxl#literal-value)
 
 - Show different literal types in CXL
 
@@ -85,7 +85,7 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 { val: '2026-01-14T10:30:00Z', literal: 'timestamp' }
 ```
 
-#### ✅ Operators
+#### ✅ [Operators](https://capire-cxl.cfapps.sap.hana.ondemand.com/docs/cds/cxl#operators)
 
 - Unary operators that operate on a single operand:
 
@@ -165,6 +165,48 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
   xpr: [ 'exists', { ref: [ 'author' ] } ]
 }
 ```
+
+#### ✅ [Functions](https://capire-cxl.cfapps.sap.hana.ondemand.com/docs/cds/cxl#function)
+
+- Show different functions in CXL
+
+```js [cds repl]
+> cds.parse.expr ` func(arg1) `
+{
+  func: 'func',
+  args: [ { ref: [ 'arg1' ] } ]
+}
+
+> cds.parse.expr ` func(arg1: foo > bar) `
+{
+  ref: [
+    {
+      id: 'func',
+      args: {
+        arg1: {
+          xpr: [ { ref: [ 'foo' ] }, '>', { ref: [ 'bar' ] } ]
+        }
+      }
+    }
+  ]
+}
+```
+
+- CAP also supports some portable functions which can be used on different databases
+
+```js [cds repl]
+> await cds.ql`SELECT name, years_between( dateOfBirth, coalesce(dateOfDeath, $now )) from ${Authors}`
+[
+  { name: 'Emily Brontë', years_between: 30 },
+  { name: 'Charlotte Brontë', years_between: 36 },
+  { name: 'Edgar Allen Poe', years_between: 40 },
+  { name: 'Richard Carpenter', years_between: 82 },
+  { name: 'Brandon Sanderson', years_between: 50 },
+  { name: 'J. R. R. Tolkien', years_between: 81 }
+]
+```
+
+and this also works the same way on HANA, SQLite, Postgres, ...
 
 ### Optional: What Not How - HANA repl session
 

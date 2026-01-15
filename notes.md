@@ -8,7 +8,7 @@
 
 Show the mechanism in the bookshop.
 
-```cds
+```js
 annotate AdminService.Books:stock with @assert: (
   case
     when stock < 0 then 'Stock cannot be negative'

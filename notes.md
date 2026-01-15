@@ -4,6 +4,9 @@
 
 ### Kickoff
 
+Let the audience know that I will show everything with node.js -
+however, everything shown here also works with CAP Java.
+
 #### ✅ release notes on declarative constraints
 
 Show the mechanism in the bookshop.

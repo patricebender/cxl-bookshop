@@ -65,6 +65,14 @@ await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 
 - Lets compare the expr syntax diagrams of sqlite and CXL
 --> They are not so different after all!
 
+### Main Part II
+
+We start with the @assert from last time which needs to be executed against the application service.
+We continue with two questions:
+
+1. 🤔 Q: Would it be possible to build an expression and then re-use it for different assertions?
+2. 🤔 Q: Can we iterate over composition items with expressions? Example calculate order total amount using line item amounts?
+
 #### ✅ [Literals](https://capire-cxl.cfapps.sap.hana.ondemand.com/docs/cds/cxl#literal-value)
 
 - Show different literal types in CXL

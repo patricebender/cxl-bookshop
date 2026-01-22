@@ -1,16 +1,16 @@
-order_ID;pos;book_ID;quantity;descr
-1;10;201;5;Wuthering Heights - Classic Literature
-1;20;207;3;Jane Eyre - Victorian Novel
-1;30;251;10;The Raven - Poetry
-2;10;301;2;Mistborn: The Final Empire
-2;20;351;2;The Way of Kings
-2;30;401;3;The Hobbit
-3;10;302;5;The Well of Ascension
-3;20;352;4;Words of Radiance
-3;30;402;6;The Fellowship of the Ring
-4;10;303;3;The Hero of Ages
-4;20;304;4;The Alloy of Law
-4;30;354;2;Oathbringer
-5;10;405;5;The Silmarillion
-5;20;406;3;Unfinished Tales
-5;30;407;4;The Children of Húrin
+order_ID,pos,book_ID,quantity,descr
+1,10,201,5,Wuthering Heights - Classic Literature
+1,20,207,3,Jane Eyre - Victorian Novel
+1,30,251,10,The Raven - Poetry
+2,10,301,2,Mistborn: The Final Empire
+2,20,351,2,The Way of Kings
+2,30,401,3,The Hobbit
+3,10,302,5,The Well of Ascension
+3,20,352,4,Words of Radiance
+3,30,402,6,The Fellowship of the Ring
+4,10,303,3,The Hero of Ages
+4,20,304,4,The Alloy of Law
+4,30,354,2,Oathbringer
+5,10,405,5,The Silmarillion
+5,20,406,3,Unfinished Tales
+5,30,407,4,The Children of Húrin

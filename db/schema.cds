@@ -2,7 +2,6 @@ using { Currency, managed, sap } from '@sap/cds/common';
 
 namespace sap.capire.bookshop;
 
-//🤔 Q: Would it be possible to build an expression and then re-use it for different assertions?
 aspect ConstrainedTitle {
   @assert: (
     case
@@ -42,7 +41,6 @@ entity Genres : sap.common.CodeList {
                    on children.parent = $self;
 }
 
-//🤔 Q: Can we iterate over composition items with expressions? Example calculate order total amount using line item amounts?
 entity Orders: ConstrainedTitle {
   key ID : Int16;
   items  : Composition of many OrderItems on items.order = $self;

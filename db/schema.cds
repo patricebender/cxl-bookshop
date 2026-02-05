@@ -31,6 +31,8 @@ entity Authors : managed {
   placeOfDeath : String;
   books        : Association to many Books
                    on books.author = $self;
+  isAlive: Boolean = dateOfDeath is null ? true : false;
+  age: Integer = years_between(dateOfBirth, coalesce(dateOfDeath, current_date));
 }
 
 /** Hierarchically organized Code List for Genres */

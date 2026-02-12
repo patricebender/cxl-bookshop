@@ -25,12 +25,19 @@ entity Books : managed, ConstrainedTitle {
 entity Authors : managed {
   key ID       : Integer;
   name         : String(111) @mandatory;
+  academicTitle : String(111);
   dateOfBirth  : Date;
   dateOfDeath  : Date;
   placeOfBirth : String;
   placeOfDeath : String;
   books        : Association to many Books
                    on books.author = $self;
+
+  // association-like calculated element
+  nonSeller = books[ stock > 170 ];
+
+  // other calculated elements
+  fullName = academicTitle is not null ? academicTitle || ' ' || name : name;
   isAlive: Boolean = dateOfDeath is null ? true : false;
   age: Integer = years_between(dateOfBirth, coalesce(dateOfDeath, current_date));
 }

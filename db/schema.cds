@@ -37,7 +37,7 @@ entity Authors : managed {
   nonSeller = books[ stock > 170 ];
 
   // other calculated elements
-  fullName = academicTitle is not null ? academicTitle || ' ' || name : name;
+  fullName: String = academicTitle is not null ? academicTitle || ' ' || name : name;
   isAlive: Boolean = dateOfDeath is null ? true : false;
   age: Integer = years_between(dateOfBirth, coalesce(dateOfDeath, current_date));
 }

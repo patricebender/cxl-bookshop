@@ -2,6 +2,7 @@
 
 ## recap
 
+- CXL documentation is constantly improved, syntax diagrams are now more concise and better looking. Shoutout to Daniel for his work on this.
 - We had a quick look at the CASE … WHEN statement (and the ternary shortcut)
 - We then checked out predicates like the `expr between expr and expr`
 - In our bookshop, we added an association-like calculated element which was based on the association to books.
@@ -14,8 +15,6 @@
 cds.ql`SELECT from Authors { name } where books.title like '%Mistborn%'`
 cds.ql`SELECT from Authors { name } where exists books[ title like '%Mistborn%' ]`
 ```
-
-- CXL documentation is constantly improved, syntax diagrams are now more concise and better looking. Shoutout to Daniel for his work on this.
 
 ## todays stuff
 
@@ -54,7 +53,6 @@ For example, if we only want those authors which have written a fantasy books. S
 ```
 
 we will now get an author back for each book which has the fantasy genre, so if an author has written 3 fantasy books, we get 3 entries for this author.
-
 
 ```js
 > q = cds.ql`SELECT from ${Authors} { fullName } where exists books[genre.name = 'Fantasy']`

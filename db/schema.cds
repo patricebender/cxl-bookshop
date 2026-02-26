@@ -25,6 +25,7 @@ entity Books : managed, ConstrainedTitle {
 entity Authors : managed {
   key ID       : Integer;
   name         : String(111) @mandatory;
+  address      : Association to Addresses;
   academicTitle : String(111);
   dateOfBirth  : Date;
   dateOfDeath  : Date;
@@ -60,4 +61,16 @@ entity OrderItems {
   book         : Association to Books;
   quantity     : Integer;
   descr        : String;
+}
+
+entity Addresses {
+  key ID       : Integer;
+      city     : Association to Cities;
+      street   : String;
+}
+
+entity Cities {
+  key ID       : Integer;
+      name     : String;
+      country  : String;
 }

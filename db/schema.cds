@@ -5,7 +5,7 @@ namespace sap.capire.bookshop;
 aspect ConstrainedTitle {
   @assert: (
     case
-      when length(title) > 1  then 'title must be at least 2 characters long'
+      when length(title) <= 1  then 'title must be at least 2 characters long'
     end
   )
   title : String @mandatory;

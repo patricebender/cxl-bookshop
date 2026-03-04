@@ -1,0 +1,66 @@
+# Session with DJ
+
+## Agenda
+
+### Kickoff
+
+Let the audience know that I will show everything with node.js -
+however, everything shown here also works with CAP Java.
+
+#### ✅ release notes on declarative constraints
+
+Show the mechanism in the bookshop.
+
+```js
+annotate AdminService.Books:stock with @assert: (
+  case
+    when stock < 0 then 'Stock cannot be negative'
+  end
+);
+```
+
+then in cds.repl with Debug mode:
+
+```js
+{ Books } = AdminService.entities
+
+await INSERT.into(Books).entries({ ID: 555, title: 'foo', stock: -1, author_ID: 180 })
+```
+
+💡 Show and explain the SQL transaction flow
+
+#### ✅ Lets backup a bit and shed some light on all the Abbreviations
+
+- **CDL** = Conceptual Definition Language
+--> everything that you write in .cds files (entities, services, types, annotations, ...)
+
+- **CSN** = Core Schema Notation
+--> the in-memory representation of CDL models that captures Entity-Relationship Models and Extensions.
+
+- **CQL** = CDS Query Language
+--> typically used in your custom handlers to fire queries during runtime
+
+- **CQN** = CDS Query Notation
+--> the in-memory representation of CQL queries
+
+- **CXL** = CDS eXpression Language
+--> used in CDL: calculated elements, annotations, views and projections
+--> used in CQL: columns, where, group by, having, order by, ...
+
+- **CXN** = CDS eXpression Notation
+--> the in-memory representation of CXL expressions
+
+💡 CXL is used everywhere, the expressions used throughout CAP always end up in the context of queries
+
+### Main Part
+
+#### ✅ Now that we have clarified the abbreviations, we can dive deeper into CXL
+
+- Show the new CXL documentation
+- How to read this guide
+
+#### ✅ CXL is based on the SQL expression language, so many syntax elements from SQL are also available in CXL
+
+- lets explore the sqlite syntax diagrams for expressions: <https://www.sqlite.org/syntax/expr.html>
+- Lets compare the expr syntax diagrams of sqlite and CXL
+--> They are not so different after all!
